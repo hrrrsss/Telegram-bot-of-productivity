@@ -43,7 +43,7 @@ async def check_subscribe(message: Message):
         await message.answer("Вот бесплатный PDF")
         await message.answer_document(file)
         insert_subuser_db(user_id)
-        asyncio
+        await asyncio.sleep(7)
         await message.answer("Чтобы получить 30-ти днейвный курс " \
                              "продуктивности оформите подписку.",
                              reply_markup=arrange_paid())
