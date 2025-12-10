@@ -73,6 +73,7 @@ async def arrange_user_paid(callback: CallbackQuery):
             await callback.message.answer_document(file)
             insert_paid_db(id)
             flag = True
+            break
 
     if not flag:
         await paid_message.delete()
