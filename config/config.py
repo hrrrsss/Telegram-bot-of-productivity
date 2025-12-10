@@ -6,6 +6,9 @@ class Settings(BaseSettings):
     log_level: str
     log_format: str
 
+    acces_token: str
+    receiver: str
+
     model_config = SettingsConfigDict(env_file=".env")
 
 
