@@ -34,7 +34,7 @@ async def start_cmd(message: Message):
 @start_router.message(F.text == "Подписался")
 async def check_subscribe(message: Message):
     user_id = int(message.from_user.id)
-    file = FSInputFile("bot/pdf/free_file.pdf")
+    file = FSInputFile("bot/admin_files/pdf/free_file.pdf")
 
     member = await message.bot.get_chat_member(chat_id="@test_tg_bot_sub",
                                                user_id=user_id)
@@ -58,7 +58,7 @@ async def check_subscribe(message: Message):
 async def arrange_user_paid(callback: CallbackQuery):
     id = int(callback.from_user.id)
     link = create_paid_link(id)
-    file = FSInputFile("bot/pdf/paid_file.pdf")
+    file = FSInputFile("bot/admin_files/pdf/paid_file.pdf")
     flag = False
 
     paid_message = await callback.message.answer("К оплате - 300 рублей",
@@ -78,9 +78,6 @@ async def arrange_user_paid(callback: CallbackQuery):
         await paid_message.delete()
         await callback.message.answer("К сожалению вы не успели оплатить," \
                                       "попробуйте снова")
-
-
-    
 
 
 @start_router.callback_query(F.data == "another_time")

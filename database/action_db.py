@@ -1,14 +1,20 @@
+from datetime import datetime
+
 import sqlite3
 
 
 file = r"database\users.db"
 
 def insert_user_db(tg_id: int):
+    date = datetime.now().date()
+
     with sqlite3.connect(file) as conn:
         cur = conn.cursor()
 
-        cur.execute('''INSERT INTO users (telegram_id) VALUES (?)''',
-                    (tg_id,))
+        cur.execute('''INSERT INTO users (telegram_id,
+                                          date) 
+                                    VALUES (?, ?)''',
+                    (tg_id, date))
         
 
 def insert_subuser_db(tg_id: int):
