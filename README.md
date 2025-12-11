@@ -50,3 +50,7 @@
 ![x](image_readme/6.png)
 -
 ![x](image_readme/7.png)
+
+## План в XMind
+
+![x](image_readme/plan.png)
